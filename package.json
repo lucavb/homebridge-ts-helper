@@ -1,6 +1,6 @@
 {
     "name": "homebridge-ts-helper",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "yet another helper project that provides help with homebridge",
     "main": "dist/index.js",
     "scripts": {
