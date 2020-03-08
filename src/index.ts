@@ -31,6 +31,9 @@ export interface HomebridgeApi {
 export interface IAccessoryConfig {
     name: string;
     description?: string;
+    manufacturer?: string;
+    serial?: string;
+    model?: string;
 }
 
 export abstract class HomebridgeAccessory {
