@@ -37,7 +37,6 @@ export interface IAccessoryConfig {
 }
 
 export abstract class HomebridgeAccessory {
-
     protected services: (typeof hap.Service)[] = [];
 
     constructor(protected log: any, protected config: IAccessoryConfig) {
