@@ -1,13 +1,17 @@
 {
     "name": "homebridge-ts-helper",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "yet another helper project that provides help with homebridge",
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "prepublish": "tsc",
+    "files": [
+        "dist/*"
+    ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "clean": "rm -r dist",
-        "build": "npm run clean && tsc --outDir dist/"
+        "build": "tsc"
     },
     "keywords": [
         "homebridge"
