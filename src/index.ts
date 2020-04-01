@@ -36,11 +36,17 @@ export interface IAccessoryConfig {
     model?: string;
 }
 
-export abstract class HomebridgeAccessory {
+export interface HomebridgeLogging {
+    (...args: any[]): void;
+    debug: (message?: any, ...optionalParams: any[]) => void;
+    info: (message?: any, ...optionalParams: any[]) => void;
+    error: (message?: any, ...optionalParams: any[]) => void;
+}
 
+export abstract class HomebridgeAccessory {
     protected services: (typeof hap.Service)[] = [];
 
-    constructor(protected log: any, protected config: IAccessoryConfig) {
+    constructor(protected log: HomebridgeLogging, protected config: IAccessoryConfig) {
 
     }
 
