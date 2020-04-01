@@ -18,6 +18,22 @@
     "plugins": [
         "@typescript-eslint"
     ],
+    "overrides": [
+        {
+            "files": [
+                "*.ts",
+                "*.tsx"
+            ],
+            "rules": {
+                "@typescript-eslint/no-unused-vars": [
+                    2,
+                    {
+                        "args": "none"
+                    }
+                ]
+            }
+        }
+    ],
     "rules": {
         "max-len": [
             "error",
@@ -27,6 +43,7 @@
         "indent": [
             "error",
             4
-        ]
+        ],
+        "padded-blocks": "off"
     }
 }
