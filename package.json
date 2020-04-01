@@ -1,10 +1,10 @@
 {
     "name": "homebridge-ts-helper",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "yet another helper project that provides help with homebridge",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "files": [
         "dist/*"
     ],

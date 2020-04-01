@@ -71,11 +71,11 @@ export interface HomebridgePlatformAccessory {
 }
 
 export interface IHomebridgeAccessory {
-    new(log: HomebridgeLogging, config: object): IHomebridgeAccessory;
+    new(log: HomebridgeLogging, config: IAccessoryConfig): IHomebridgeAccessory;
 }
 
 export interface IHomebridgePlatform {
-    new(log: HomebridgeLogging, config: object, api: HomebridgeApi): IHomebridgePlatform;
+    new(log: HomebridgeLogging, config: IPlatformConfig, api: HomebridgeApi): IHomebridgePlatform;
 }
 
 export abstract class HomebridgeAccessory {
