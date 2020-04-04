@@ -1,7 +1,6 @@
 import * as hap from 'hap-nodejs';
 import EventEmitter = NodeJS.EventEmitter;
-import Categories = HAPNodeJS.Accessory.Categories;
-import Service = HAPNodeJS.Service;
+import {Categories, Service} from 'hap-nodejs';
 
 type VersionNumber = number;
 type ServerVersionNumber = string;
@@ -24,10 +23,10 @@ export interface HomebridgeApi extends EventEmitter {
 
     registerAccessory(pluginName: string,
                       accessoryName: string,
-                      constructor: IHomebridgeAccessory,
+                      constructor: typeof HomebridgeAccessory,
                       configurationRequestHandler?: any): void;
 
-    registerPlatform(pluginName: string, platformName: string, constructor: IHomebridgePlatform, dynamic: any): void;
+    registerPlatform(pluginName: string, platformName: string, constructor: typeof HomebridgePlatform, dynamic: any): void;
 
     registerPlatformAccessories(pluginName: string, platformName: string, accessories: HomebridgePlatformAccessory[]): void;
 
@@ -56,7 +55,10 @@ export interface HomebridgeLogging {
     error: (message?: any, ...optionalParams: any[]) => void;
 }
 
-export interface HomebridgePlatformAccessory {
+export interface HomebridgePlatformAccessory extends EventEmitter {
+
+    displayName: string;
+
     new(displayName: string, UUID: string, category?: Categories): HomebridgePlatformAccessory;
 
     addService(service: Service): Service;
@@ -68,14 +70,6 @@ export interface HomebridgePlatformAccessory {
     getServiceByUUIDAndSubType(uuid: string, subtype: any): Service;
 
     updateReachability(reachability: boolean): void;
-}
-
-export interface IHomebridgeAccessory {
-    new(log: HomebridgeLogging, config: IAccessoryConfig): IHomebridgeAccessory;
-}
-
-export interface IHomebridgePlatform {
-    new(log: HomebridgeLogging, config: IPlatformConfig, api: HomebridgeApi): IHomebridgePlatform;
 }
 
 export abstract class HomebridgeAccessory {
@@ -92,7 +86,7 @@ export abstract class HomebridgeAccessory {
 
 export abstract class HomebridgePlatform {
 
-    protected readonly accessories: HomebridgeAccessory[] = [];
+    protected readonly accessories: HomebridgePlatformAccessory[] = [];
 
     constructor(protected readonly log: HomebridgeLogging,
                 protected readonly config: IPlatformConfig,

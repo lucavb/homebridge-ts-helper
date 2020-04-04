@@ -1,6 +1,6 @@
 {
     "name": "homebridge-ts-helper",
-    "version": "1.0.8",
+    "version": "2.0.0-beta.0",
     "description": "yet another helper project that provides help with homebridge",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -24,8 +24,9 @@
         "@typescript-eslint/parser": "^2.22.0",
         "eslint": "^6.8.0",
         "eslint-config-google": "^0.14.0",
-        "hap-nodejs": "^0.4.53",
         "typescript": "^3.8.3"
     },
-    "dependencies": {}
+    "dependencies": {
+        "hap-nodejs": "^0.5.9"
+    }
 }
