@@ -1,6 +1,6 @@
 import * as hap from 'hap-nodejs';
-import EventEmitter = NodeJS.EventEmitter;
 import {Categories, Service} from 'hap-nodejs';
+import EventEmitter = NodeJS.EventEmitter;
 
 type VersionNumber = number;
 type ServerVersionNumber = string;
@@ -58,6 +58,11 @@ export interface HomebridgeLogging {
 export interface HomebridgePlatformAccessory extends EventEmitter {
 
     displayName: string;
+    UUID: string;
+    reachable: boolean;
+    category: Categories;
+    context: any;
+    services: Service[];
 
     new(displayName: string, UUID: string, category?: Categories): HomebridgePlatformAccessory;
 
