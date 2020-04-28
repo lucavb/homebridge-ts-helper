@@ -1,6 +1,6 @@
 {
     "name": "homebridge-ts-helper",
-    "version": "2.0.0-beta.1",
+    "version": "2.0.0-beta.3",
     "description": "yet another helper project that provides help with homebridge",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -9,9 +9,11 @@
         "dist/*"
     ],
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "clean": "rm -r dist",
-        "build": "tsc"
+        "build": "npx tsc",
+        "test": "npx jest",
+        "clean": "rm -rf dist",
+        "cbuild": "npm run clean && npm run build",
+        "prepare": "npm run cbuild"
     },
     "keywords": [
         "homebridge"
@@ -27,6 +29,7 @@
         "typescript": "^3.8.3"
     },
     "dependencies": {
-        "hap-nodejs": "^0.5.9"
+        "hap-nodejs": "^0.6.4",
+        "homebridge": "^1.0.1"
     }
 }

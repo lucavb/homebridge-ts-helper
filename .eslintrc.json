@@ -42,8 +42,12 @@
         "require-jsdoc": "off",
         "indent": [
             "error",
-            4
+            4,
+            {
+                "SwitchCase": 1
+            }
         ],
-        "padded-blocks": "off"
+        "padded-blocks": "off",
+        "no-invalid-this": "off"
     }
 }
