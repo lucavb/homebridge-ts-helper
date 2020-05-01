@@ -29,7 +29,7 @@
         "typescript": "^3.8.3"
     },
     "dependencies": {
-        "hap-nodejs": "^0.6.4",
-        "homebridge": "^1.0.1"
+        "hap-nodejs": "^0.6.11",
+        "homebridge": "^1.0.4"
     }
 }
