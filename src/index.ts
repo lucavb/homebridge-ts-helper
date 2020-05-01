@@ -1,5 +1,5 @@
 import {Service} from 'hap-nodejs';
-import {AccessoryConfig, API, Logging, PlatformAccessory} from 'homebridge';
+import {AccessoryConfig, API, Logging, PlatformAccessory, PlatformConfig} from 'homebridge';
 
 export type HomebridgeApi = API
 
@@ -10,7 +10,7 @@ export interface IAccessoryConfig extends AccessoryConfig {
     model?: string;
 }
 
-export interface IPlatformConfig {
+export interface IPlatformConfig extends PlatformConfig {
     platform: string;
 }
 
